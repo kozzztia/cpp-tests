@@ -1,8 +1,6 @@
-#include "assets/functions.h"
+#include <iostream>
 
 int main() {
-    printText();
-    printHello();
-    printNext();
+    std::cout << "Hello, C++! v1.9" << std::endl;
     return 0;
 }
