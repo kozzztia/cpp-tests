@@ -1,6 +1,7 @@
 #include <iostream>
 
 int main() {
-    std::cout << "Hello, C++! v1.9/n" << std::endl;
+    std::cout << "Hello, C++!\n";
+    std::cout << "version 1.9.1\n";
     return 0;
 }
