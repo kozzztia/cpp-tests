@@ -1,0 +1,6 @@
+g++ consoleCpp.cpp -o consoleCpp
+build
+./consoleCpp 
+start
+g++ consoleCpp.cpp assets/functions.cpp -o consoleCpp
+duild  and  find links  ti functions
