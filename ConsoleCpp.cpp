@@ -1,7 +1,11 @@
 #include <iostream>
 
 int main() {
-    setlocale(LC_ALL, "UA");
+    // setlocale(LC_ALL, "UA");
+    // single-line comment
+    /*
+        multi-line comment
+    */
     std::cout << "Hello, C++!\n";
     std::cout << "version 1.9.1\n";
     std::cout << L"текст  і Ї\n";
