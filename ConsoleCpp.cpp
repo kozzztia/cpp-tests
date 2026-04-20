@@ -9,21 +9,10 @@ int main() {
     std::cout << "Enter a text: ";
     std::cin >> text;
 
-    if(text == "one")
-    {
-        std::cout << "1";
-    }else if (text == "two")
-    {
-        std::cout << "2";
-    }
-    else if (text == "three")
-    {
-        std::cout << "three";
-    }
-    else
-    {
-        std::cout << "other";
-    }
+    if(text == "one") std::cout << "1";
+    else if (text == "two") std::cout << "2";
+    else if (text == "three") std::cout << "three";
+    else std::cout << "other";
 
     // old variant
     // char text[10]; 
