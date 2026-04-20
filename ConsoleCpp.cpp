@@ -1,19 +1,19 @@
 #include <iostream>
 
 int main() {
-    int a, b, c , result;
-    char aa[] = "insert a: ", bb[] = "insert b: ", cc[] = "insert c: ";
+    // date  type
 
-    std::cout << aa;
-    std::cin >> a;
-    std::cout << bb;
-    std::cin >> b;
-    std::cout << cc;
-    std::cin >> c;
+    int number = 1000000000000000000; // integer -2billion / +2billion 4bits
+    unsigned int unsigned_number = 2000000000; // unsigned integer 0 / +4billion 4bits
+    short short_number = 2; // short integer  -32k /+32k 2bits
+    long long long_number = 1000000000000000000; // long integer -9 quintillion / +9 quintillion 8bits
 
-    result = a + b + c;
+    char character = 'A';
+    bool isTrue = true;
 
-    std::cout << "result" << result << std::endl;
+
+
+
 
     return 0;
 }
