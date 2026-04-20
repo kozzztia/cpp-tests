@@ -17,5 +17,9 @@ int main() {
     std::cout << "float: " << float_number << std::endl;
     std::cout << "double: " << double_number << std::endl;
 
+    char sym = 'A'; // character type 8 bit
+    char str[] = "Hello, World!"; // string - array of characters + null terminator \0 14 * 8 bits ()
+   
+
     return 0;
 }
