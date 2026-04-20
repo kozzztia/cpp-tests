@@ -7,8 +7,7 @@ int main() {
     std::srand(std::time(nullptr));
     int random_number = 1 + std::rand() % 10;
     int count = 0;
-    int number;
-    
+    int number; 
 
     while (true)
     {
@@ -25,9 +24,5 @@ int main() {
             count += 1;
         }
     }
-    
-    
-
-
     return 0;
 }
