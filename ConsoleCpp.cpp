@@ -11,7 +11,7 @@ int main() {
     std::cout << "Enter a text: ";
     std::cin >> text;
     std::cout << "Enter a flag  (true/false): ";
-    std::cin >> flag;
+    std::cin >> flag_input;
 
     if (flag_input == "true") flag = true;
     else flag = false;
@@ -20,6 +20,7 @@ int main() {
     else if (text == "two" && flag) std::cout << "2 and flag  true";
     else if (text == "three") std::cout << "three";
     else std::cout << "other";
+
 
     // old variant
     // char text[10]; 
