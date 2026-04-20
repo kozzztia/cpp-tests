@@ -2,20 +2,20 @@
 
 int main() {
 
-    int number; 
+    char text; 
 
-    std::cout << "Enter a number (1 -4): ";
-    std::cin >> number;
+    std::cout << "Enter a text: ";
+    std::cin >> text;
 
-    switch (number)
+    switch (text)
     {
-    case 1 :
+    case '1' :
         std::cout << "Number is: one" << std::endl;
         break;
-    case 2:
+    case '2':
         std::cout << "Number is: two" << std::endl;
         break;
-    case 3 :
+    case '3' :
         std::cout << "Number is: three" << std::endl;
         break;
     default:
