@@ -14,13 +14,20 @@ int main() {
 
 
     // std::cout << std::setprecision(10); // установить точность вывода
-    std::cout << "float: " << float_number << std::endl;
-    std::cout << "double: " << double_number << std::endl;
+    // std::cout << "float: " << float_number << std::endl;
+    // std::cout << "double: " << double_number << std::endl;
 
     char sym = 'A'; // character type 1 byte
     char str[] = "Hello, World!"; // string - array of characters + null terminator \0 14 * 1 bytes ()
+    int numbers[] = {1, 2, 3, 4, 5}; // array of integers 5 * 4 bytes (20 bytes)
    
     bool is_true = true; // boolean type 1 byte (true/false)
+
+    for (size_t i = 0; i < sizeof(numbers) / sizeof(numbers[0]); i++)
+    {
+        std::cout << numbers[i] << " ";
+    }
+    
 
     return 0;
 }
