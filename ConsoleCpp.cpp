@@ -1,12 +1,9 @@
 #include <iostream>
 
 int main() {
-    int num = 0;
-    char text[] = "number: ";
-    bool flag = true;
+    int a, b, c;
 
-    std::cout << text << num << flag << std::endl;
-
+    std::cin >> a >> b >> c;
 
     return 0;
 }
