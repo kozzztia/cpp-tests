@@ -1,40 +1,72 @@
 #include <iostream>
 #include <cstring> 
 
-enum Number {
-    ONE = 1,
-    TWO = 2,
-    THREE = 3,
-    FOUr = 4 
-};
 
 int main() {
 
-    int input;
+    float num1, num2;
+    char operation;
 
-    std::cout << "Enter a text: ";
-    std::cin >> input;
-    
-    Number num = static_cast<Number>(input);
 
-    switch (num){
-    case ONE :
-        std::cout << "Number is: one"; 
-        break;
 
-    case TWO :
-        std::cout << "Number is: two";
-        break;  
-
-    case THREE:
-        std::cout << "Number is: three"; 
-        break;
-
-    default:
-        std::cout << "Number is: other  or  four"; 
-        break;
-
-    return 0;
+    while (true)
+    {
+        std::cout << "insert first number : ";
+        if(!(std::cin >> num1)){
+            std::cin.clear();
+            std::cin.ignore(10000, '\n');
+            std::cout << "insert first number as (1,2...): ";
+        }else{
+            break;
+        }
     }
 
+    while (true)
+    {
+        std::cout << "insert second number : ";
+        if(!(std::cin >> num2)){
+            std::cin.clear();
+            std::cin.ignore(10000, '\n');
+            std::cout << "insert second number as (1,2...): ";
+        }else{
+            break;
+        }
+    }
+
+
+    while (true)
+    {
+        std::cout << "insert operation (+, -, *, /): ";
+        std::cin >> operation;
+        if(operation == '+' || operation == '-' || operation == '*' || operation == '/'){
+            break;
+        }else{
+            std::cin.clear();
+            std::cin.ignore(10000, '\n');
+        }
+        std::cout << "try  again";
+    }
+
+    switch (operation)
+    {
+    case '+' :
+            std::cout << "result is : " <<  num1 + num2;
+        break;
+    case '-' :
+            std::cout << "result is : " <<  num1 - num2;
+        break;
+    case '*' :
+            std::cout << "result is : " <<  num1 * num2;
+        break;
+    case '/' :
+            std::cout << "result is : " <<  num1 / num2;
+        break;
+    
+    default:
+        std::cout << "wrong  operation or  number";
+        break;
+    }
+
+    return 0;
+    
 }
