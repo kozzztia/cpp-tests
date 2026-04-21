@@ -8,16 +8,19 @@ int main() {
 
     // for 
 
-    // for(int i = 1; i <= 10; i++){
-    //     for(int o = 1; o <= i; o++){
-    //         cout << o ;
-    //     }
-    //     cout << endl;
-    // }
+    for(int i = 1; i <= 20; i++){
+
+
+        if(i % 2) continue;
+        
+        cout << "number: " << i << endl;
+
+        if(i == 10) break;
+    }
 
     // while
 
-    int num = 100, num2 = 100;
+    // int num = 100, num2 = 100;
 
     // while(num < 10){
     //     num++;
@@ -29,15 +32,15 @@ int main() {
     //     cout << endl;
     // }
 
-    do {
-        num++;
-        do{
-            num2++;
-            cout << num2;
-        }while(num2 < num);
-        num2 = 0;
-        cout << endl;
-    } while (num < 10);
+    // do {
+    //     num++;
+    //     do{
+    //         num2++;
+    //         cout << num2;
+    //     }while(num2 < num);
+    //     num2 = 0;
+    //     cout << endl;
+    // } while (num < 10);
 
     
 
