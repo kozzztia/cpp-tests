@@ -1,45 +1,40 @@
 #include <iostream>
 #include <cstring> 
 
+enum Number {
+    ONE = 1,
+    TWO = 2,
+    THREE = 3,
+    FOUr = 4 
+};
+
 int main() {
 
-    // more safe
-    std::string text;
-    char flag_input;
-
+    int input;
 
     std::cout << "Enter a text: ";
-    std::cin >> text;
-    std::cout << "Enter a flag  (y/n): ";
-    std::cin >> flag_input;
+    std::cin >> input;
+    
+    Number num = static_cast<Number>(input);
 
-    if(text == "one" || text == "four" || text == "1" || text == "4") std::cout << "1 or  4";
-    else if ((text == "two" || text == "2" ) && flag_input == 'y') std::cout << "2 and flag  true";
-    else if (text == "three" || text == "4") std::cout << "three";
-    else std::cout << "other";
+    switch (num){
+    case ONE :
+        std::cout << "Number is: one"; 
+        break;
 
+    case TWO :
+        std::cout << "Number is: two";
+        break;  
 
-    // old variant
-    // char text[10]; 
+    case THREE:
+        std::cout << "Number is: three"; 
+        break;
 
-    // std::cout << "Enter a text: ";
-    // std::cin >> text;
-
-    // if(std::strcmp(text, "one") == 0)
-    // {
-    //     std::cout << "1";
-    // }else if (std::strcmp(text, "two") == 0)
-    // {
-    //     std::cout << "2";
-    // }
-    // else if (std::strcmp(text, "three") == 0)
-    // {
-    //     std::cout << "three";
-    // }
-    // else
-    // {
-    //     std::cout << "other";
-    // }
+    default:
+        std::cout << "Number is: other  or  four"; 
+        break;
 
     return 0;
+    }
+
 }
