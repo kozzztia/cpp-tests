@@ -8,6 +8,7 @@ int main() {
 
     float num1, num2;
     char operation;
+    srand(time(NULL));
 
     // while (true)
     // {
@@ -62,12 +63,15 @@ int main() {
     //     break;
     // }
 
-    int a = 2, b = 3, c = 9, res = 5;
+    // int a = 2, b = 3, c = 9, res = 5;
 
-    res--;
+    // res--;
 
-    cout << res;
+    // cout << res;
+
+    float num = 1 + rand() % 50;
+
+    cout << num;
 
     return 0;
-    
 }
