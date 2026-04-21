@@ -5,26 +5,19 @@ using namespace std;
 
 
 int main() {
-    setlocale(LC_ALL, "RU");
-    srand(time(NULL));
-    int rand_number = 1 + rand() % 100, number, step = 0;
-    bool flag = true;
-    do{
-        if(step == 0 ) cout << "insert  your  number (0 - 100): ";
-        cin >> number;
-        step++;
-        if(number == rand_number){
-            flag = false;
-            cout << "grats  your  number  is " << number << " you had: " << step << " steps";
-        }else if(number > rand_number){
-            cout << "number : " << number << " is biger insert new: ";
-        }else if(number < rand_number){
-            cout << "number : " << number << " is smaller insert  new  one: ";
+
+    int numbers[5] = {4, 5, 6, 7, 8}, step = 0, length = sizeof(numbers) / sizeof(numbers[0]);
+    bool stop = false;
+
+    do {
+        if(step >= length){
+            stop = true;
+            break;
         }else{
-            cout << "somesing  wrong";
-        }
-        
-    }while (flag);
+            cout << numbers[step] << endl;
+        };
+        step++;
+    } while (!stop);
 
     return 0;
 }
