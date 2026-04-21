@@ -5,7 +5,7 @@ using namespace std;
 
 
 int main() {
-
+    setlocale(LC_ALL, "RU");
     srand(time(NULL));
     int rand_number = 1 + rand() % 100, number, step = 0;
     bool flag = true;
@@ -15,7 +15,7 @@ int main() {
         step++;
         if(number == rand_number){
             flag = false;
-            cout << "graеы  your  number  is " << number << " you had: " << step << " steps";
+            cout << "grats  your  number  is " << number << " you had: " << step << " steps";
         }else if(number > rand_number){
             cout << "number : " << number << " is biger insert new: ";
         }else if(number < rand_number){
