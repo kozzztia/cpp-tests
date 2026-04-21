@@ -6,43 +6,25 @@ using namespace std;
 
 int main() {
 
-    // for 
-
-    for(int i = 1; i <= 20; i++){
-
-
-        if(i % 2) continue;
+    srand(time(NULL));
+    int rand_number = 1 + rand() % 100, number, step = 0;
+    bool flag = true;
+    do{
+        if(step == 0 ) cout << "insert  your  number (0 - 100): ";
+        cin >> number;
+        step++;
+        if(number == rand_number){
+            flag = false;
+            cout << "graеы  your  number  is " << number << " you had: " << step << " steps";
+        }else if(number > rand_number){
+            cout << "number : " << number << " is biger insert new: ";
+        }else if(number < rand_number){
+            cout << "number : " << number << " is smaller insert  new  one: ";
+        }else{
+            cout << "somesing  wrong";
+        }
         
-        cout << "number: " << i << endl;
-
-        if(i == 10) break;
-    }
-
-    // while
-
-    // int num = 100, num2 = 100;
-
-    // while(num < 10){
-    //     num++;
-    //     while(num2 < num){
-    //         num2++;
-    //         cout << num2;
-    //     }
-    //     num2 = 0;
-    //     cout << endl;
-    // }
-
-    // do {
-    //     num++;
-    //     do{
-    //         num2++;
-    //         cout << num2;
-    //     }while(num2 < num);
-    //     num2 = 0;
-    //     cout << endl;
-    // } while (num < 10);
-
-    
+    }while (flag);
 
     return 0;
 }
