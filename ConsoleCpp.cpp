@@ -10,11 +10,9 @@
 using namespace std;
 
 
-void print (const string& arg){
-    cout << arg << endl;
-}
+template <typename T>
 
-void print (const int& arg){
+void print (const T& arg){
     cout << arg << endl;
 }
 
