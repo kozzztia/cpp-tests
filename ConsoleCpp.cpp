@@ -10,8 +10,10 @@ int main() {
     // 
     srand(time(NULL));
 
-    int  *nums, size = 10; 
+    int  *nums, *num, size = 10; 
     nums = new int[size]; //40 byte
+    num = new int;
+    *num = 50;
 
     for(int i = 0; i < size; i++){
         nums[i] = 1 + rand() % 100;
@@ -23,6 +25,7 @@ int main() {
     }
     
     delete[] nums;
+    delete num;
     nums = nullptr;
     size = 0;
 
