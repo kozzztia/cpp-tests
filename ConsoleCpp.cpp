@@ -10,10 +10,13 @@ using namespace std;
 int main() {
 
     char test[100];
+    string text;
 
     cin.getline(test, 100);
 
-    string text = "hello world";
+    cin >> text;
+
+
 
     cout << strlen(test);
 
