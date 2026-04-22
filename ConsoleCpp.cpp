@@ -8,25 +8,18 @@
 
 using namespace std;
 
-void print(const string& text){
-    cout << text << endl;
-}
+int calc(const vector<int>& args){
+    int summ = accumulate(args.begin(), args.end(), 0);
 
-void print_all(const vector<string>& text ){
-    int size = text.size();
-
-    for(int i = 0; i < size; i++){
-        print(text[i]);
-    };
+    return summ;
 }
 
 int main() {
-    vector<string> text;
-    text.push_back("hello");
-    text.push_back("world");
+    vector<int> nums = {1,2,3,4,5,6,7,8,9, -20, 200,};
+    
+    int num = calc(nums);
 
-
-    print_all(text);
+    cout << num << " finish";
 
     return 0;
 }
