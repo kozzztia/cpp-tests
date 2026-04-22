@@ -8,18 +8,25 @@
 
 using namespace std;
 
-int calc(const vector<int>& args){
-    int summ = accumulate(args.begin(), args.end(), 0);
+struct Stats {
+    int sum;
+    int min;
+    int max;
+};
 
-    return summ;
+Stats calc(const vector<int>& args){
+    int sum = accumulate(args.begin(), args.end(), 0);
+    int min = *min_element(args.begin(), args.end());
+    int max = *max_element(args.begin(), args.end());
+    return {sum, min, max};
 }
 
 int main() {
     vector<int> nums = {1,2,3,4,5,6,7,8,9, -20, 200,};
     
-    int num = calc(nums);
+    Stats result = calc(nums);
 
-    cout << num << " finish";
+    cout << result.max << " " << result.min << " " << result.sum << endl;
 
     return 0;
 }
