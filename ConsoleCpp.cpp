@@ -9,36 +9,25 @@
 
 using namespace std;
 
-// struct Stats {
-//     int sum;
-//     int min;
-//     int max;
-// };
 
-// Stats calc(const vector<int>& args){
-//     int sum = accumulate(args.begin(), args.end(), 0);
-//     int min = *min_element(args.begin(), args.end());
-//     int max = *max_element(args.begin(), args.end());
-//     return {sum, min, max};
-// }
+void print (const string& arg){
+    cout << arg << endl;
+}
 
-tuple<int,int,int>  calc(const vector<int>& args);
+void print (const int& arg){
+    cout << arg << endl;
+}
+
+
+void add (const int&  a, const int& b){
+    int sum = a + b;
+
+    print(to_string(sum));
+}
 
 int main() {
-    vector<int> nums = {1,2,3,4,5,6,7,8,9, -20, 200,};
-    
-    auto [sum, min, max] = calc(nums);
 
-    cout << max << " " << min << " " << sum << endl;
-
+    add(12, 15);
     return 0;
 }
-
-tuple<int,int,int>  calc(const vector<int>& args){
-    int sum = accumulate(args.begin(), args.end(), 0);
-    int min = *min_element(args.begin(), args.end());
-    int max = *max_element(args.begin(), args.end());
-    return {sum, min, max};
-}
-
 
