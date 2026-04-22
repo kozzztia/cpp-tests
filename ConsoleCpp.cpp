@@ -10,26 +10,29 @@
 using namespace std;
 
 
-
+void add (int* arr, int size);
 
 int main() {
 
     srand(time(NULL));
-    int num = 1 + rand() % 5;
+    
+    int arr[] = {1 + rand() % 5, 1 + rand() % 5, 1 + rand() % 5, 1 + rand() % 5, 1 + rand() % 5, 1 + rand() % 5,};
+    int size = sizeof(arr) / sizeof(arr[0]) -1;
 
-    int &num2 = num;
-    int* ptrnum = &num;
-    cout << &num << '-' << num << endl;
-    cout << &num2 << '-' << num2 << endl;
-    cout << ptrnum << '-' << *ptrnum << endl;
-
-
-    num2 = 5 + rand() % 10;
-    cout << &num << '-' << num << endl;
-    cout << &num2 << '-' << num2 << endl;
-    cout << ptrnum << '-' << *ptrnum << endl;
-
+    add(arr, size);
 
     return 0;
 }
 
+void add (int* arr, int size){
+    int min = *arr;
+
+    for(int i = 0; i < size; i++){
+        if(min > arr[i]){
+            min = arr[i];
+        };
+    };
+
+    cout << "min : " << min << endl;
+
+}
