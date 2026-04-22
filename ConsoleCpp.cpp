@@ -6,24 +6,26 @@ using namespace std;
 
 
 int main() {
+    // memory
+    // 
+    srand(time(NULL));
 
-    
-
-    int matrix[3][5] = {
-        {1, 2, 1, 6, 8},
-        {5, 6, 3, 2, 8},
-        {7, 3, 2, 3, 9},
-    };
-    int size = sizeof(matrix) / sizeof(matrix[0]);
-    int size_in = sizeof(matrix[0]) / sizeof(matrix[0][0]);
+    int  *nums, size = 10; 
+    nums = new int[size]; //40 byte
 
     for(int i = 0; i < size; i++){
-        for(int z = 0; z < size_in; z++){
-            cout << matrix[i][z];
-            if(z == size_in -1) cout << endl;
-            else cout << ',';
-        }
+        nums[i] = 1 + rand() % 100;
     }
+
+    for(int i = 0; i < size; i++){
+        cout << nums[i];
+        i == size - 1 ? cout << '.' : cout << ', ';
+    }
+    
+    delete[] nums;
+    nums = nullptr;
+    size = 0;
+
 
     return 0;
 }
