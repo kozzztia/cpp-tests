@@ -19,7 +19,7 @@ int main() {
 
     for(int i = 0; i < size; i++){
         cout << nums[i];
-        i == size - 1 ? cout << '.' : cout << ', ';
+        i == size - 1 ? cout << '.' : cout << ", ";
     }
     
     delete[] nums;
