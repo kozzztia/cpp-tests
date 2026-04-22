@@ -9,10 +9,11 @@ using namespace std;
 
 int main() {
 
-    char test[] = "hello world";
+    char test[100];
+
+    cin.getline(test, 100);
 
     string text = "hello world";
-
 
     cout << strlen(test);
 
