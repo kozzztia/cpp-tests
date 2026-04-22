@@ -10,9 +10,9 @@ int main() {
     // 
     srand(time(NULL));
 
-    int  *nums, *num, size = 10; 
-    nums = new int[size]; //40 byte
-    num = new int;
+    int size = 10; 
+    int* nums = new int[size]; //40 byte
+    int* num = new int;
     *num = 50;
 
     for(int i = 0; i < size; i++){
@@ -25,10 +25,10 @@ int main() {
     }
     
     delete[] nums;
+    cout << "there :" << *num << endl;
     delete num;
     nums = nullptr;
+    num = nullptr;
     size = 0;
-
-
     return 0;
 }
