@@ -8,13 +8,20 @@
 
 using namespace std;
 
-struct Stats {
-    int sum;
-    int min;
-    int max;
-};
+// struct Stats {
+//     int sum;
+//     int min;
+//     int max;
+// };
 
-Stats calc(const vector<int>& args){
+// Stats calc(const vector<int>& args){
+//     int sum = accumulate(args.begin(), args.end(), 0);
+//     int min = *min_element(args.begin(), args.end());
+//     int max = *max_element(args.begin(), args.end());
+//     return {sum, min, max};
+// }
+
+tuple<int,int,int>  calc(const vector<int>& args){
     int sum = accumulate(args.begin(), args.end(), 0);
     int min = *min_element(args.begin(), args.end());
     int max = *max_element(args.begin(), args.end());
@@ -24,9 +31,9 @@ Stats calc(const vector<int>& args){
 int main() {
     vector<int> nums = {1,2,3,4,5,6,7,8,9, -20, 200,};
     
-    Stats result = calc(nums);
+    auto [sum, min, max] = calc(nums);
 
-    cout << result.max << " " << result.min << " " << result.sum << endl;
+    cout << max << " " << min << " " << sum << endl;
 
     return 0;
 }
