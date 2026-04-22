@@ -3,27 +3,32 @@
 #include <numeric>  
 #include <string> 
 #include <cstring>
+#include <vector>
+
 
 using namespace std;
 
+void print(const string& text){
+    cout << text << endl;
+}
+
+void print_all(const vector<string>& text ){
+    int size = text.size();
+
+    for(int i = 0; i < size; i++){
+        print(text[i]);
+    };
+}
 
 int main() {
-
-    char test[100];
-    string text;
-
-    cin.getline(test, 100);
-
-    cin >> text;
+    vector<string> text;
+    text.push_back("hello");
+    text.push_back("world");
 
 
-
-    cout << strlen(test);
-
-    cout  << "\n";
-
-    cout << text.size();
-
+    print_all(text);
 
     return 0;
 }
+
+
