@@ -17,15 +17,15 @@ void print (const T& arg){
 }
 
 
-void add (const int&  a, const int& b){
-    int sum = a + b;
-
-    print(to_string(sum));
+void add (const vector<int>& arg){
+    int sum = accumulate(arg.begin(), arg.end(), 0);
+    print(sum);
 }
 
 int main() {
 
-    add(12, 15);
+    add({1,2,3,4,2,3,4,3,2,11,3});
+    
     return 0;
 }
 
