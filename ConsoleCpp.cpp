@@ -7,25 +7,23 @@ using namespace std;
 
 int main() {
 
-    int numbers[5] = {1,2,3,3,5}, length = sizeof(numbers) / sizeof(numbers[0]), summ;
-
-    // auto  - автоматически  получает типа  который  прийдет  от  выполнения  функции
-    // min_element max_element достает  адресс - ссылку  на  елемент  который  ищем
-    // numbers == numbers[0] numbers + length == numbers[length] но похоже -  1й  ето ссылка - адресс  2й  ето уже  елемент
-    auto min = min_element(numbers, numbers + length);
-    auto max = max_element(numbers, numbers + length);
-    // * берет значение   полученой  ссылки на значение 
-    // и  присваеваем переменной   значение  сссылки 
-    int ma = *max;
-    int mi = *min;
-    // 0 ето старт   суммы  -   с чего начинаем  как reduce
-    summ = accumulate(numbers, numbers + length, 0);
-
-
     
-    cout << "min : " << min << endl;
-    cout << "max : " << max << endl;
-    cout << "summ : " << summ << endl;
+
+    int matrix[3][5] = {
+        {1, 2, 1, 6, 8},
+        {5, 6, 3, 2, 8},
+        {7, 3, 2, 3, 9},
+    };
+    int size = sizeof(matrix) / sizeof(matrix[0]);
+    int size_in = sizeof(matrix[0]) / sizeof(matrix[0][0]);
+
+    for(int i = 0; i < size; i++){
+        for(int z = 0; z < size_in; z++){
+            cout << matrix[i][z];
+            if(z == size_in -1) cout << endl;
+            else cout << ',';
+        }
+    }
 
     return 0;
 }
