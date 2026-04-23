@@ -11,44 +11,34 @@
 using namespace std;
 
 
-void add ();
+
+
+struct Tree {
+    string name;
+    int age;
+    bool is_alive;
+    float height;
+};
+
+void add (Tree &tree);
+void add (Tree* tree);
+
 
 int main() {
 
-    srand(time(NULL));
-    
-    int arr[] = {1 + rand() % 5, 1 + rand() % 5, 1 + rand() % 5, 1 + rand() % 5, 1 + rand() % 5, 1 + rand() % 5,};
+    Tree dub = {"дуб", 15, true, 12.5,};
 
-    add();
+    add(dub);
+
+    add(&dub);
 
     return 0;
 }
 
-void add (){
-
-    ifstream file ("text.txt");
-
-    // vector<string> temp;
-    // if(file.is_open()){
-    //     string line;
-        
-    //     while(getline(file, line)){
-    //         temp.push_back(line);
-    //     }
-    //     file.close();
-    // }
-
-    // for(const auto& text : temp){
-    //     cout << text <<endl;
-    // }
-
-
-    char temp[100];
-
-    if(file.is_open()){
-        file.getline(temp, 100);
-        file.close();
-    };
-
-    cout << temp << endl;
+void add (Tree &tree){
+    cout << tree.name << "1" << endl;
 }
+void add (Tree* tree){
+    cout << tree->name << "2" << endl;
+}
+
