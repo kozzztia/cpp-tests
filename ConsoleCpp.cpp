@@ -10,47 +10,44 @@
 
 using namespace std;
 
-
-struct Point {
-    int x, y;
-    void get_position(){ cout << "position is:" << x << ':' << y << endl; }; 
+enum Options {
+    open, 
+    close, 
+    wait, 
+    del,
 };
 
-struct Tree {
+struct File {
+    float weight;
     string name;
-    int age;
-    bool is_alive;
-    float height;
-    Point position;
-    void get_info() {cout << name << ' ' << age << ' ' << height << ' ' << (is_alive ? "alive":"dead") << endl; };
+    Options options;
 };
-
-void add (Tree &tree);
-void add (Tree* tree);
-
 
 int main() {
 
-    Tree dub = {"дуб", 15, true, 12.5, {1,4}};
-    Tree apple = {"яблоко", 5, true, 5.5, {4,6}};
-    Point one = {2,5};
+    File my_file = {
+        .weight = 10.5f,
+        .name = "text.txt",
+        .options = Options::del,
+    };
 
-    add(dub);
+    // cout << my_file.options << endl;
 
-    add(&apple);
+    if(my_file.options == Options::close){
+        cout << "close" << endl;
+    }
+    if(my_file.options == Options::open){
+        cout << "open" << endl;
+    }
+    if(my_file.options == Options::wait){
+        cout << "wait" << endl;
+    }
+    if(my_file.options == Options::del){
+        cout << "del" << endl;
+    }
 
     return 0;
 }
 
-void add (Tree &tree){
-    cout << tree.name << "1" << endl;
-    tree.get_info();
-    tree.position.get_position();
-};
-void add (Tree* tree){
-    cout << tree->name << "2" << endl;
-    tree->get_info();
-    tree->position.get_position();
-};
 
 
