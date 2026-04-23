@@ -5,40 +5,31 @@
 #include <cstring>
 #include <vector> //universal  array
 #include <tuple> //typing 
+#include <fstream> //file
 
 
 using namespace std;
 
 
-void add (int* arr, int size);
+void add (int* arr);
 
 int main() {
 
     srand(time(NULL));
     
     int arr[] = {1 + rand() % 5, 1 + rand() % 5, 1 + rand() % 5, 1 + rand() % 5, 1 + rand() % 5, 1 + rand() % 5,};
-    
-    int size = sizeof(arr) / sizeof(arr[0]);
 
-    add(arr, size);
+    add(arr);
 
     return 0;
 }
 
-void add (int* arr, int  size){
-    int min = *arr;
-    int max = *arr;
+void add (int* arr){
 
-
-    for(int i = 0; i < size; i++){
-        if(min > *arr++){
-            min = *arr++;
-        };
-        if(min < *arr++){
-            min = *arr++;
-        };
-    };
-
-    cout << "min : " << min << " max : " << max << endl;
-
+    ofstream file("text.txt", ios_base::out);
+    if(file.is_open()){
+        file << "hello im  file";
+        file.close();
+    }
+    
 }
