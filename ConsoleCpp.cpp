@@ -17,22 +17,28 @@ int main() {
     srand(time(NULL));
     
     int arr[] = {1 + rand() % 5, 1 + rand() % 5, 1 + rand() % 5, 1 + rand() % 5, 1 + rand() % 5, 1 + rand() % 5,};
-    int size = sizeof(arr) / sizeof(arr[0]) -1;
+    
+    int size = sizeof(arr) / sizeof(arr[0]);
 
     add(arr, size);
 
     return 0;
 }
 
-void add (int* arr, int size){
+void add (int* arr, int  size){
     int min = *arr;
+    int max = *arr;
+
 
     for(int i = 0; i < size; i++){
-        if(min > arr[i]){
-            min = arr[i];
+        if(min > *arr++){
+            min = *arr++;
+        };
+        if(min < *arr++){
+            min = *arr++;
         };
     };
 
-    cout << "min : " << min << endl;
+    cout << "min : " << min << " max : " << max << endl;
 
 }
