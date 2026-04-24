@@ -1,53 +1,60 @@
 #include <iostream>
-#include <algorithm> //min max
-#include <numeric>  //accumulate
-#include <string> 
-#include <cstring>
-#include <vector> //universal  array
-#include <tuple> //typing 
-#include <fstream> //file
-#include <cmath> //NAN isnan
-#include <stdexcept> 
-
+#include <string>
 using namespace std;
 
-
+class Car; // предварительное объявление
 class Person;
-class Car;
 
-class Person{
-    private :
-        string name;
-        string third_name;
-
-    public : 
-        Person(const string& name, const string& third_name ) : name(name) , third_name(third_name){}
-
-        friend void get_info(Person person, Car car);
-};
-
-class Car{
-    private :
+class Car {
+    private:
         string name;
         float speed;
-    
-    public : 
-        Car(const string& name, const float& speed ) : name(name) , speed(speed){};
 
-        friend void get_info(Person person, Car car);
+    public:
+        Car(const string& name, float speed) : name(name), speed(speed) {}
+
+        void info() const {
+            cout << "Car: " << this->name << ", speed: " << this->speed << endl;
+        }
+
+        // Разрешаем Person доступ к приватным полям Car
+        friend class Person;
 };
 
-void get_info(Person person, Car car){
-            cout << "person name" << person.name <<  " has  car :" << car.name << endl;
-};
+class Person {
+    private:
+        string name;
 
+    public:
+        Person(const string& name) : name(name) {}
+
+        void fast(Car& car){
+            car.speed += 60;
+            cout << car.speed << endl;
+        };
+        void slow(Car& car){
+            car.speed -= 60;
+            cout << car.speed << endl;
+        };
+        void stop(Car& car){
+            car.speed = 0;
+            cout << car.speed << endl;
+        };
+};
 
 int main() {
-
-    Person ivan("Ivan", "vanchez");
+    Person ivan("Ivan");
     Car bmw("BMW", 1000);
 
-    get_info(ivan, bmw);
+    bmw.info();
+    ivan.fast(bmw);
+    ivan.fast(bmw);
+    ivan.fast(bmw);
+
+    ivan.slow(bmw);
+
+    ivan.stop(bmw);
+    bmw.info();
 
     return 0;
 }
