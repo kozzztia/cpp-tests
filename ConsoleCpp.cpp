@@ -13,28 +13,27 @@ using namespace std;
 
 class Building{
     private: 
-        float cost;
         string type;
         string address;
-    
+        float cost;
+
     public: 
+        Building(const string&  set_type, const string&  set_address, const float&  set_cost)
+            : type(set_type), address(set_address), cost(set_cost)
+        {};
+
         void get_info() { cout << "address -" << address << ", type - " << type << endl; };
-        void get_memory_address() { cout << "memory : " << sizeof(Building) << "byte , address : " << this << endl; };
-        void set_data(const string& set_type, const string& set_address, const float&  set_cost) {
-            type = set_type;
-            address = set_address;
-            cost = set_cost;
-        }
+        void get_memory() { cout << "address : " << this << endl; };
 };
 
 int main() {
-    Building home;
-    home.set_data("home", "dick streen 2", 4500);
-    Building school;
-    school.set_data("school", "dick streen 15", 1500);
-
+    Building home("home", "shlapi 23", 1400 );
     home.get_info();
+    home.get_memory();
+
+    Building school("school", "shlapi 23", 1400);
     school.get_info();
+    school.get_memory();
 
     return 0;
 }
