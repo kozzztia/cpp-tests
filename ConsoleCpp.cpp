@@ -11,51 +11,43 @@
 
 using namespace std;
 
-class Building{
-    private: 
-        string type;
-        string address;
-        float cost;
-        int length_result;
 
-    public: 
+class Person;
+class Car;
 
-        Building(const string&  set_type, const string&  set_address, const float&  set_cost)
-            : type(set_type), address(set_address), cost(set_cost)
-        {
-           this->length_result = this->address.length();
-           this->create();
+class Person{
+    private :
+        string name;
+        string third_name;
 
-        };
+    public : 
+        Person(const string& name, const string& third_name ) : name(name) , third_name(third_name){}
 
-        Building(): type("halupa"), address("shlapi 3"), cost(100)
-        {
-           this->length_result = this->address.length();
-           this->create();
-        };
-
-        void get_info() { cout << "address -" << this->address << ", type - " << this->type << " letter length :" << this->length_result << endl; };
-        void get_memory() { cout << "address : " << this << endl; };
-        void create(){cout << "create object " << this->type << endl;}
-        void remove(){cout << "delete object " << this->type << endl;}
-
-        ~Building(){
-            this->remove();
-        }
+        friend void get_info(Person person, Car car);
 };
 
+class Car{
+    private :
+        string name;
+        float speed;
+    
+    public : 
+        Car(const string& name, const float& speed ) : name(name) , speed(speed){};
+
+        friend void get_info(Person person, Car car);
+};
+
+void get_info(Person person, Car car){
+            cout << "person name" << person.name <<  " has  car :" << car.name << endl;
+};
+
+
 int main() {
-    Building home("home", "shlapi 23", 1400 );
-    home.get_info();
-    home.get_memory();
 
-    Building school("school", "shlapi 13", 1400);
-    school.get_info();
-    school.get_memory();
+    Person ivan("Ivan", "vanchez");
+    Car bmw("BMW", 1000);
 
-    Building halupa;
-    halupa.get_info();
-    halupa.get_memory();
+    get_info(ivan, bmw);
 
     return 0;
 }
