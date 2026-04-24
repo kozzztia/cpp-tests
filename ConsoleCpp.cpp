@@ -13,7 +13,7 @@
 using namespace std;
 
  void divide(float a , float b){
-    if(b == 0) throw runtime_error("cant division");
+    if(b == 0) throw 100;
 
     else cout << (a / b) << endl;
  }
@@ -30,8 +30,8 @@ int main() {
         divide(a, b);
     } 
     
-    catch (const runtime_error& e){
-        cout << e.what() <<endl;
+    catch (int e){
+        if(e == 100) cout << "error" << endl;
     };
 
 
