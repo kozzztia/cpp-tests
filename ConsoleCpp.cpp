@@ -11,22 +11,32 @@
 
 using namespace std;
 
-int main() {
-    float a =3, b=2.444444f, c= -15, result;
-
-    result = pow(a, b); //привсти к стперни
-    result = abs(c); //положительное
-    result = sin(c); //
-    result = cos(c); //
-    result = sqrt(b); // квадратный  корень
-    result = ceil(b);
-    result = floor(b);
-    result = round(b);
-
+class Building{
+    private: 
+        float cost;
+        string type;
+        string address;
     
-    cout << result << endl;
+    public: 
+        void get_info() { cout << "address -" << address << ", type - " << type << endl; };
+        void get_memory_address() { cout << "memory : " << sizeof(Building) << "byte , address : " << this << endl; };
+        void set_data(string set_type, string set_address, float  set_cost) {
+            type = set_type;
+            address = set_address;
+            cost = set_cost;
+        }
+
+};
+
+int main() {
+    Building home;
+    home.set_data("home", "dick streen 2", 4500);
+    Building school;
+    school.set_data("school", "dick streen 15", 1500);
+
+
+    home.get_info();
+    home.get_info();
 
     return 0;
 }
-
-
