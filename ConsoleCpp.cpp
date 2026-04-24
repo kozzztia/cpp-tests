@@ -9,47 +9,24 @@
 #include <cmath> //NAN isnan
 #include <stdexcept> 
 
-
 using namespace std;
 
- void divide(float &a , float &b){
-    if(b == 0) throw runtime_error("olla   im  error! you  cant devide for  0");
-    if(b < 0) throw runtime_error("olla   im  error with  b");
-    if(a < 0) throw runtime_error("olla   im  error with a");
-
-
-    else cout << (a / b) << endl;
- }
-
- void insert_num(float &num){
-
-    while(true){
-        cout << "insert num : ";
-        cin >> num;
-
-        if(cin.fail()){
-            cin.clear();
-            cin.ignore(numeric_limits<streamsize>::max(), '\n');
-            cout << "try again to ";
-        }else{
-            break;
-        }
-    }
- }
-
 int main() {
-    float a, b;
+    string str = "hello", str2 = "world", str3;
+    
+    str3 = str + ' ' + str2;
+    cout << str << endl;
 
-   insert_num(a);
-   insert_num(b);
+    str.append(str2);
+    // cout << str.length() << endl;
+    str.pop_back();
+    str.resize(10);
+    str.push_back('!');
     
-    try{
-        divide(a, b);
-    } 
+
     
-    catch (runtime_error& e){
-        cout << e.what() << endl;
-    };
+    
+    cout << str << endl;
 
     return 0;
 }
