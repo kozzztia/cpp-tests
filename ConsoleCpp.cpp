@@ -12,30 +12,43 @@
 
 using namespace std;
 
- void divide(float a , float b){
-    if(b == 0) throw 100;
-    if(a == 3) throw 101;
-    if(b == 3) throw 102;
+ void divide(float &a , float &b){
+    if(b == 0) throw runtime_error("olla   im  error! you  cant devide for  0");
+    if(b < 0) throw runtime_error("olla   im  error with  b");
+    if(a < 0) throw runtime_error("olla   im  error with a");
+
 
     else cout << (a / b) << endl;
+ }
+
+ void insert_num(float &num){
+
+    while(true){
+        cout << "insert num : ";
+        cin >> num;
+
+        if(cin.fail()){
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cout << "try again to ";
+        }else{
+            break;
+        }
+    }
  }
 
 int main() {
     float a, b;
 
-    cout << "insert a :";
-    cin >> a;
-    cout << "insert b :";
-    cin >> b;
+   insert_num(a);
+   insert_num(b);
     
     try{
         divide(a, b);
     } 
     
-    catch (int e){
-        if(e == 100) cout << "error" << endl;
-        if(e == 101) cout << "a = 3" << endl;
-        if(e == 102) cout << "b = 3" << endl;
+    catch (runtime_error& e){
+        cout << e.what() << endl;
     };
 
     return 0;
