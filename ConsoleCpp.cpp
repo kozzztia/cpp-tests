@@ -7,53 +7,35 @@
 #include <tuple> //typing 
 #include <fstream> //file
 #include <cmath> //NAN isnan
+#include <stdexcept> 
 
 
 using namespace std;
 
-enum Actions {
-    dev = '/',
-    plus = '+',
-    minus = '-',
-    multi = '*',
-};
+ void divide(float a , float b){
+    if(b == 0) throw runtime_error("cant division");
 
-float calc (float a, float b, Actions action);
+    else cout << (a / b) << endl;
+ }
 
 int main() {
-    setlocale(LC_ALL, "");
-    char op;
     float a, b;
 
-    cout << "insert first num: " ;
+    cout << "insert a :";
     cin >> a;
-    cout << "insert second num: " ;
+    cout << "insert b :";
     cin >> b;
-    cout << "insert action: " ;
-    cin >> op;
+    
+    try{
+        divide(a, b);
+    } 
+    
+    catch (const runtime_error& e){
+        cout << e.what() <<endl;
+    };
 
-    Actions action = static_cast<Actions>(op); 
-
-    float result = calc(a, b, action);
-
-    if (isnan(result)) {
-        cout << "Error: unknow  operation" << endl;
-    } else {
-        cout << "Result: " << result << endl;
-    }
 
     return 0;
 }
-
-float calc(float a, float b, Actions action) {
-    switch (action) {
-        case Actions::plus:  return a + b;
-        case Actions::minus: return a - b;
-        case Actions::dev:   return b != 0 ? a / b : NAN; 
-        case Actions::multi: return a * b;
-        default:    return NAN;
-    }
-}
-
 
 
