@@ -23,20 +23,24 @@ class Building{
         Building(const string&  set_type, const string&  set_address, const float&  set_cost)
             : type(set_type), address(set_address), cost(set_cost)
         {
-           length_result = address.length();
+           this->length_result = this->address.length();
+           this->create();
+
         };
 
-        Building()
-            : type("halupa"), address("shlapi 3"), cost(100)
+        Building(): type("halupa"), address("shlapi 3"), cost(100)
         {
-           length_result = address.length();
+           this->length_result = this->address.length();
+           this->create();
         };
 
-        void get_info() { cout << "address -" << address << ", type - " << type << " letter length :" << length_result << endl; };
+        void get_info() { cout << "address -" << this->address << ", type - " << this->type << " letter length :" << this->length_result << endl; };
         void get_memory() { cout << "address : " << this << endl; };
+        void create(){cout << "create object " << this->type << endl;}
+        void remove(){cout << "delete object " << this->type << endl;}
 
         ~Building(){
-            cout << "DELEDE object" << type << endl;
+            this->remove();
         }
 };
 
