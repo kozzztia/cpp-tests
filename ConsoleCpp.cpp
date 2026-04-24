@@ -6,47 +6,53 @@
 #include <vector> //universal  array
 #include <tuple> //typing 
 #include <fstream> //file
+#include <cmath> //NAN isnan
 
 
 using namespace std;
 
-enum Options {
-    open, 
-    close, 
-    wait, 
-    del,
+enum Actions {
+    dev = '/',
+    plus = '+',
+    minus = '-',
+    multi = '*',
 };
 
-struct File {
-    float weight;
-    string name;
-    Options options;
-};
+float calc (float a, float b, Actions action);
 
 int main() {
+    setlocale(LC_ALL, "");
+    char op;
+    float a, b;
 
-    File my_file = {
-        .weight = 10.5f,
-        .name = "text.txt",
-        .options = Options::del,
-    };
+    cout << "insert first num: " ;
+    cin >> a;
+    cout << "insert second num: " ;
+    cin >> b;
+    cout << "insert action: " ;
+    cin >> op;
 
-    // cout << my_file.options << endl;
+    Actions action = static_cast<Actions>(op); 
 
-    if(my_file.options == Options::close){
-        cout << "close" << endl;
-    }
-    if(my_file.options == Options::open){
-        cout << "open" << endl;
-    }
-    if(my_file.options == Options::wait){
-        cout << "wait" << endl;
-    }
-    if(my_file.options == Options::del){
-        cout << "del" << endl;
+    float result = calc(a, b, action);
+
+    if (isnan(result)) {
+        cout << "Error: unknow  operation" << endl;
+    } else {
+        cout << "Result: " << result << endl;
     }
 
     return 0;
+}
+
+float calc(float a, float b, Actions action) {
+    switch (action) {
+        case Actions::plus:  return a + b;
+        case Actions::minus: return a - b;
+        case Actions::dev:   return b != 0 ? a / b : NAN; 
+        case Actions::multi: return a * b;
+        default:    return NAN;
+    }
 }
 
 
