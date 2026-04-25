@@ -5,11 +5,11 @@
 
 using namespace std;
 
-template <typename T, size_t N>//шаблон с типом и размером.
+template <typename T, typename T2, size_t N>//шаблон с типом и размером.
 
 void show_all(T (&arr)[N]) {// «ссылка на массив из N элементов типа T».
 
-        for(int i = 0; i < N; i++ ){
+        for(T2 i = 0; i < N; i++ ){
             cout << arr[i] << " ";//перешагивание  на  елемент  в  масиве
         };
 
@@ -25,11 +25,11 @@ int main() {
     bool arr5[] = {true, false, false, false};
 
 
-    show_all<int>(arr);
-    show_all<float>(arr2);
-    show_all<string>(arr3);
-    show_all(arr4);
-    show_all(arr5);
+    show_all<int, int>(arr);
+    show_all<float, int>(arr2);
+    show_all<string, int>(arr3);
+    // show_all(arr4);
+    // show_all(arr5);
 
 
     return 0;
