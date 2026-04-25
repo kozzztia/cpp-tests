@@ -1,12 +1,10 @@
 #include <iostream>
 #include <locale>
-#include <limits> // для numeric_limits
+#include <limits> 
 using namespace std;
 
-// перечисление допустимых операций
 enum class Operation { ADD, SUB, MUL, DIV, UNKNOWN };
 
-// функция для преобразования символа в enum
 Operation getOperation(char op) {
     switch(op) {
         case '+': return Operation::ADD;
