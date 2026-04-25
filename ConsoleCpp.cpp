@@ -1,81 +1,75 @@
 #include <iostream>
-#include <string>
-#include <ctime>
-#include <vector>
-
+#include <locale>
+#include <limits> // для numeric_limits
 using namespace std;
 
-template <class T, size_t N>
+// перечисление допустимых операций
+enum class Operation { ADD, SUB, MUL, DIV, UNKNOWN };
 
-class Arrays {
-    protected: 
-        // poiner  to  array
-        T* arr;
-    
-    public: 
-        Arrays(T (&a)[N] ){
-            arr = new T[N];
-
-            for(int i = 0; i < N; i++) 
-                *(arr + i) = *(a + i);
-
-            cout << "start" << endl;;
-        };
-
-        void get_all(){
-            for(int i = 0; i < N; i++){
-                cout << *(arr + i);
-                if(i < N -1) cout  << ", ";
-            }
-
-            cout << endl;
-        };
-
-        void get_summ(){
-            T sum = 0;
-            for(int i = 0; i < N; i++) 
-                sum += *(arr + i);
-
-            cout << "sum is " << sum << endl;
-        };
-
-        void get_min(){
-            T min = *arr;
-
-            for(int i = 0; i < N; i++) 
-                if(min > *(arr + i)) min = *(arr + i);
-
-            cout << "min is " << min << endl;
-        };
-
-        void get_max(){
-            T max = *arr;
-
-            for(int i = 0; i < N; i++) 
-                if(*(arr + i) > max) max = *(arr + i);
-
-            cout << "max is " << max << endl;
-        };
-
-        ~Arrays(){ delete[] arr; cout << "delete" << endl;};
-
-};
-
+// функция для преобразования символа в enum
+Operation getOperation(char op) {
+    switch(op) {
+        case '+': return Operation::ADD;
+        case '-': return Operation::SUB;
+        case '*': return Operation::MUL;
+        case '/': return Operation::DIV;
+        default:  return Operation::UNKNOWN;
+    }
+}
 
 int main() {
+    setlocale(LC_ALL, "");
 
-    int array[] = {1,2,3,4,5,6,7,8,9,0};
-    float array2[] = {1.1,2,3,4,5,6,7.2,8,9,0.5f};
+    double a, b;
+    char cont = 'y';
 
+    cout << "Welcome to the calculator!" << endl;
 
-    Arrays test(array); 
+    while (cont == 'y' || cont == 'Y') {
+        while (true) {
+            cout << "Enter the first number: ";
+            cin >> a;
+            if (!cin.fail()) break;
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cout << "Invalid input. Please enter a number.\n";
+        }
 
-    test.get_all();
+        Operation opType = Operation::UNKNOWN;
+        while (opType == Operation::UNKNOWN) {
+            char op;
+            cout << "Enter the operation (+ - * /): ";
+            cin >> op;
+            opType = getOperation(op);
+            if (opType == Operation::UNKNOWN) {
+                cout << "Invalid operation. Please enter one of (+ - * /).\n";
+            }
+        }
 
-    Arrays test2(array2); 
+        while (true) {
+            cout << "Enter the second number: ";
+            cin >> b;
+            if (!cin.fail()) break;
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cout << "Invalid input. Please enter a number.\n";
+        }
 
-    test2.get_all();
+        switch(opType) {
+            case Operation::ADD: cout << "Result: " << a + b << endl; break;
+            case Operation::SUB: cout << "Result: " << a - b << endl; break;
+            case Operation::MUL: cout << "Result: " << a * b << endl; break;
+            case Operation::DIV:
+                if(b != 0) cout << "Result: " << a / b << endl;
+                else cout << "Error: division by zero!" << endl;
+                break;
+            default: cout << "Unknown operation!" << endl;
+        }
 
+        cout << "Do you want to continue? (y/n): ";
+        cin >> cont;
+    }
 
+    cout << "Exiting program..." << endl;
     return 0;
 }
